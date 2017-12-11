@@ -1,8 +1,17 @@
 #This will have 2 user inputs: One is time in HH:MM and another is similar HH:MM
 #input that tells when the alarm in the future is supposed to go off
+
+#So we start with the first input here, the currentTime, or the startTime,
+#call it what you will. I find starting with baby steps helps the most.
 currentTime = input("What is the time to count from (in HH:MM): ")
 
-n = 0
+#Instead of keeping the basic processing of the input to later, we do it right
+#here. As you can see, I am struggling with trying to detect an invalid input.
+
+#But what we have done here is using string slicing/ modification, we create
+#hours and minutes variables, so we can make the computer understand time.
+
+n = 0 #Pretty sure this is unnecessary in Python, but old C++ habits die hard.
 for n in range(0, len(currentTime)):
     if currentTime[n] == ":":
         inpHourS = currentTime[0:n]
