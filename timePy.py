@@ -62,7 +62,7 @@ print("Target time: ", tarHour, tarMins)
 alarmHour = inpHour + tarHour
 alarmMins = inpMins + tarMins
 
-if alarmMins > 59:
+while alarmMins > 59: #If someone decides to get cute and put in 8 hours and 34563 minutes of sleep needed, this should take care of it.
     alarmMins -= 60
     alarmHour += 1
 
