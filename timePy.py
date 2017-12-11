@@ -63,12 +63,17 @@ alarmHour = inpHour + tarHour
 alarmMins = inpMins + tarMins
 
 alarmDay = 0
+while alarmMins > 59: #If someone decides to get cute and put in 8 hours and 34563 minutes of sleep needed, this should take care of it.
+    alarmMins -= 60
+    alarmHour += 1
+
+print("You will wake up at: ", alarmHour, alarmMins)
 
 while alarmHour > 23:
-    while alarmMins > 59: #If someone decides to get cute and put in 8 hours and 34563 minutes of sleep needed, this should take care of it.
-        alarmMins -= 60
-        alarmHour += 1
-
     alarmHour -= 24
     alarmDay += 1
-print("You will wake up at: ", alarmHour, alarmMins)
+
+#This is like pressing the numbers down into sensible proportions that we can undersand.
+#Like distillation of a number like 8 hours 354897 minutes into a time and 247 days for example.
+
+print("You will wake up at: ", alarmHour, alarmMins, " in ", alarmDay, " days")
