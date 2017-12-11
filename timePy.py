@@ -49,4 +49,5 @@ alarmMins = inpMins + tarMins
 if alarmMins > 59:
     alarmMins -= 60
     alarmHour += 1
+
 print("You will wake up at: ", alarmHour, alarmMins)
