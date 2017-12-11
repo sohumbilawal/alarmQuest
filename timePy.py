@@ -37,10 +37,11 @@ elif inpHour > 12:
 elif inpHour < 0:
     print("Invalid entry.")
 elif inpHour < 12:
-    timeOfDay = input("Is this AM(please type am) or PM(please type pm)?")
-    if timeOfDay == "pm":
+    timeOfDay = input("Is this AM(please type am) or PM(please type pm)? or 24-hour format(please type 24)")
+    if timeOfDay == "pm" or timeOfDay == "PM":
         inpHour += 12
-
+    else:
+        print("We are all good!")
 #This is something I love to do: keep printing stuff out. Track your variables.
 #We do not have a Matlab style console/ editor. So we make do with prints.
 print("Current Time: ", inpHour, inpMins)
@@ -75,5 +76,19 @@ while alarmHour > 23:
 
 #This is like pressing the numbers down into sensible proportions that we can undersand.
 #Like distillation of a number like 8 hours 354897 minutes into a time and 247 days for example.
+if len(str(alarmMins)) == 1:
+    alarmMins = "0{}".format(alarmMins)
+if alarmHour < 13 and alarmDay > 0:
+    print("You will wake up at {}:{} am in {} days".format(alarmHour, alarmMins, alarmDay))
 
-print("You will wake up at: ", alarmHour, alarmMins, " in ", alarmDay, " days")
+elif alarmHour > 12 and alarmDay > 0:
+    alarmHour -= 12
+    print("You will wake up at {}:{} pm in {} days".format(alarmHour, alarmMins, alarmDay))
+
+elif alarmHour < 13 and alarmDay == 0:
+    print("You will wake up at {}:{} am today".format(alarmHour, alarmMins))
+
+elif alarmHour > 12 and alarmDay == 0:
+    print("You will wake up at {}:{} pm today".format(alarmHour, alarmMins))
+
+#print("You will wake up at: ", alarmHour, alarmMins, " in ", alarmDay, " days")
