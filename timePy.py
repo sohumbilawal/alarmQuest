@@ -16,13 +16,16 @@ for n in range(0, len(currentTime)):
     if currentTime[n] == ":":
         inpHourS = currentTime[0:n]
         inpMinsS = currentTime[n+1:]
-        inpHour = int(inpHourS)
+        inpHour = int(inpHourS) #Converting to int for processing later
         inpMins = int(inpMinsS)
+
 #for chars in currentTime:
 #    if chars == ":":
 #        print("Please include : and use the format HH:MM.")
 #    else:
 #        print("Invalid entry.")
+
+#Logic related to numbers that were just strings for Python.
 
 if inpMins > 59:
     print("Invalid entry. Minutes cannot be more than 59.")
@@ -38,6 +41,8 @@ elif inpHour < 12:
     if timeOfDay == "pm":
         inpHour += 12
 
+#This is something I love to do: keep printing stuff out. Track your variables.
+#We do not have a Matlab style console/ editor. So we make do with prints.
 print("Current Time: ", inpHour, inpMins)
 
 targetTime = input("How long do you want to sleep? (in HH:MM): ")
@@ -50,6 +55,8 @@ for n in range(0, len(targetTime)):
         tarHour = int(tarHourS)
         tarMins = int(tarMinsS)
 
+#We will not need the same kidn of logic, since it is mentioned that users of
+#this app might have to sleep 92 hours and such. Oh well.
 print("Target time: ", tarHour, tarMins)
 
 alarmHour = inpHour + tarHour
